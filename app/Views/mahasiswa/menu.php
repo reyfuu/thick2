@@ -31,7 +31,7 @@
 								<div class="col-lg-12 px-2">
 									<div class="submenu-box"> 
 										<ul class="list-unstyled m-0">
-											<li><a href="">Daftar Proyek</a></li>
+											<li><a href="<?= base_url('/mahasiswa/register-project');?>">Register Project</a></li>
 											<li><a href="">Kemajuan Proyek</a></li>
 										    <li><a href=""> Laporan Proyek</a></li>
 										</ul>

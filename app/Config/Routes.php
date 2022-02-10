@@ -34,6 +34,8 @@ $routes->setAutoRoute(true);
 
 $routes->get('/login', 'Home::login');
 $routes->get('/mahasiswa', 'Mahasiswa::index');
+$routes->get('/mahasiswa/register-project', 'Mahasiswa::regis');
+$routes->add('/mahasiswa/regis-project', 'Mahasiswa::regisProject');
 $routes->get('/dosen', 'Dosen::index');
 $routes->get('/admin', 'Admin::index');
 $routes->get('/admin/prodi', 'Admin::prodi');
