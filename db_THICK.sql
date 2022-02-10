@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 08, 2022 at 07:45 AM
+-- Generation Time: Feb 10, 2022 at 08:03 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -24,30 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `akun`
+-- Table structure for table `account`
 --
 
-CREATE TABLE `akun` (
-  `id_akun` varchar(225) NOT NULL,
-  `id_konsentrasi` int(225) NOT NULL,
-  `nama` varchar(225) NOT NULL,
-  `kompetensi` varchar(100) NOT NULL,
-  `email` varchar(225) NOT NULL,
-  `kontak` varchar(50) NOT NULL,
-  `gambar` varchar(225) NOT NULL,
+CREATE TABLE `account` (
+  `id_account` varchar(225) NOT NULL,
+  `id_concentration` int(225) NOT NULL,
+  `name` varchar(225) NOT NULL,
+  `competence` varchar(100) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `contact` varchar(50) NOT NULL,
+  `picture` varchar(225) NOT NULL,
   `level` int(1) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `akun`
+-- Dumping data for table `account`
 --
 
-INSERT INTO `akun` (`id_akun`, `id_konsentrasi`, `nama`, `kompetensi`, `email`, `kontak`, `gambar`, `level`, `created_at`, `updated_at`) VALUES
+INSERT INTO `account` (`id_account`, `id_concentration`, `name`, `competence`, `email`, `contact`, `picture`, `level`, `created_at`, `updated_at`) VALUES
 ('1', 1, 'Admin', 'Admin', 'admin.tester@ukdc.ac.id', '1', 'https://lh3.googleusercontent.com/a/AATXAJyeK9lMFNtusDdjss0EjiLe1n1ObPXrid9wrQWB=s96-c', 1, '2022-02-07 14:39:10', '2022-02-07 14:39:10'),
 ('19340019', 4, 'Audi Nathanael', 'CISCO', 'audi.nathanael@student.ukdc.ac.id', '081938137432', 'https://lh3.googleusercontent.com/a/AATXAJxU32eSWXJiNivd3dokzrKrNXXiU30Bb3h-gD8-=s96-c', 4, '2022-02-02 19:42:37', '2022-02-02 19:42:37'),
-('19340008', 1, 'Brielt Bella Gracitwo', 'Web Programing', 'brielt.bella@student.ukdc.ac.id', '089530950620', 'https://lh3.googleusercontent.com/a-/AOh14GjFu4LufYHQzurihdnNiz69zdDZSfftpaavV_obrw=s96-c', 4, '2022-02-02 19:30:11', '2022-02-02 19:30:11');
+('19340008', 1, 'Brielt Bella Gracitwo', 'Web Programing', 'brielt.bella@student.ukdc.ac.id', '000', 'https://lh3.googleusercontent.com/a-/AOh14GjFu4LufYHQzurihdnNiz69zdDZSfftpaavV_obrw=s96-c', 4, '2022-02-08 19:32:25', '2022-02-08 19:32:25'),
+('1234', 1, 'Einsten', 'Hardware', 'einsten@ukdc.ac.id', '', 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/450px-Albert_Einstein_Head.jpg', 3, NULL, NULL),
+('11111', 1, 'member 1', 'coba', 'member1@student.ukdc.ac.id', '000', '', 4, NULL, NULL),
+('22222', 1, 'member 2', 'coba', 'member2@student.ukdc.ac.id', '00', '', 4, NULL, NULL),
+('12345', 2, 'Nicola Tesla', 'Listrik', 'nicola.tesla@ukdc.ac.id', '1', 'https://www.akupaham.com/wp-content/uploads/2017/05/Biografi-Nikola-Tesla-e1504254213735.jpg', 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -80,22 +84,22 @@ INSERT INTO `coba` (`id`, `judul`, `slug`, `sinopsi`, `gambar`, `created_at`, `u
 -- --------------------------------------------------------
 
 --
--- Table structure for table `konsentrasi`
+-- Table structure for table `concentration`
 --
 
-CREATE TABLE `konsentrasi` (
-  `id_konsentrasi` int(225) NOT NULL,
-  `id_prodi` int(225) NOT NULL,
-  `konsentrasi` varchar(100) NOT NULL,
+CREATE TABLE `concentration` (
+  `id_concentration` int(225) NOT NULL,
+  `id_departement` int(225) NOT NULL,
+  `concentration` varchar(100) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `konsentrasi`
+-- Dumping data for table `concentration`
 --
 
-INSERT INTO `konsentrasi` (`id_konsentrasi`, `id_prodi`, `konsentrasi`, `created_at`, `updated_at`) VALUES
+INSERT INTO `concentration` (`id_concentration`, `id_departement`, `concentration`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Software Engineering', NULL, NULL),
 (2, 1, 'Computer Science', NULL, NULL),
 (3, 1, 'Enterprise System', NULL, NULL),
@@ -104,31 +108,78 @@ INSERT INTO `konsentrasi` (`id_konsentrasi`, `id_prodi`, `konsentrasi`, `created
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prodi`
+-- Table structure for table `departement`
 --
 
-CREATE TABLE `prodi` (
-  `id_prodi` int(225) NOT NULL,
-  `prodi` varchar(225) NOT NULL,
+CREATE TABLE `departement` (
+  `id_departement` int(225) NOT NULL,
+  `departement` varchar(225) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `prodi`
+-- Dumping data for table `departement`
 --
 
-INSERT INTO `prodi` (`id_prodi`, `prodi`, `created_at`, `updated_at`) VALUES
+INSERT INTO `departement` (`id_departement`, `departement`, `created_at`, `updated_at`) VALUES
 (1, 'Ilmu Informatika', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member`
+--
+
+CREATE TABLE `member` (
+  `id_member` int(225) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `id_project` int(225) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`id_member`, `email`, `id_project`, `created_at`, `updated_at`) VALUES
+(1, 'member1@student.ukdc.ac.id', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project`
+--
+
+CREATE TABLE `project` (
+  `id_project` int(225) NOT NULL,
+  `id_lecturer` varchar(225) NOT NULL,
+  `id_head` varchar(225) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `type` varchar(25) NOT NULL,
+  `start` date NOT NULL,
+  `end` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`id_project`, `id_lecturer`, `id_head`, `name`, `type`, `start`, `end`, `created_at`, `updated_at`) VALUES
+(1, '123', '19340008', 'coba 1', 'Application', '2022-02-10', NULL, NULL, NULL),
+(2, '123', '19340007', 'coba 2', 'Application', '2022-02-10', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `akun`
+-- Indexes for table `account`
 --
-ALTER TABLE `akun`
+ALTER TABLE `account`
   ADD PRIMARY KEY (`email`);
 
 --
@@ -138,16 +189,28 @@ ALTER TABLE `coba`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `konsentrasi`
+-- Indexes for table `concentration`
 --
-ALTER TABLE `konsentrasi`
-  ADD PRIMARY KEY (`id_konsentrasi`);
+ALTER TABLE `concentration`
+  ADD PRIMARY KEY (`id_concentration`);
 
 --
--- Indexes for table `prodi`
+-- Indexes for table `departement`
 --
-ALTER TABLE `prodi`
-  ADD PRIMARY KEY (`id_prodi`);
+ALTER TABLE `departement`
+  ADD PRIMARY KEY (`id_departement`);
+
+--
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`id_member`);
+
+--
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`id_project`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -160,16 +223,28 @@ ALTER TABLE `coba`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `konsentrasi`
+-- AUTO_INCREMENT for table `concentration`
 --
-ALTER TABLE `konsentrasi`
-  MODIFY `id_konsentrasi` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `concentration`
+  MODIFY `id_concentration` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `prodi`
+-- AUTO_INCREMENT for table `departement`
 --
-ALTER TABLE `prodi`
-  MODIFY `id_prodi` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `departement`
+  MODIFY `id_departement` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `member`
+--
+ALTER TABLE `member`
+  MODIFY `id_member` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+  MODIFY `id_project` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
