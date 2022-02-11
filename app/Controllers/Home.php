@@ -74,11 +74,11 @@ class Home extends BaseController
             'level' => $this->request->getVar('level')
         
         ]);
-        // session()->set([
-        //     'id' => $this->request->getVar('id_account'),
-        //     'name' => $this->request->getVar('name'),
-        //     'level' => $this->request->getVar('level')
-        // ]);
+        session()->set([
+            'id' => $this->request->getVar('id_account'),
+            'name' => $this->request->getVar('name'),
+            'level' => $this->request->getVar('level')
+        ]);
         return redirect()->to('/');
     }
     public function registration()
@@ -106,8 +106,8 @@ class Home extends BaseController
          }else{
              $raw = $this->loginModel->getEmail($account['email']);
              session()->set([
-                'id' => $raw['id_akun'],
-                'name' => $raw['nama'],
+                'id' => $raw['id_account'],
+                'name' => $raw['name'],
                 'level' => $raw['level']
             ]);
             return redirect()->to('/');

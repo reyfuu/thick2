@@ -18,7 +18,7 @@ class AccountModel extends Model
         return $this->where(['id_account' => $id])->first();
     }
     public function cekEmail($email = ''){
-        return $this->where(['email' => $email])->countAllResults();;
+        return $this->where(['email' => $email])->countAllResults();
     }
     public function cekId($id){
         return $this->where(['id_account' => $id])->countAllResults();
@@ -27,20 +27,16 @@ class AccountModel extends Model
         return $this->where(['level' => 3])->find();
     }
     public function getStudent(){
-        $memberActive = $this->join('member','member.email=account.email')->join('project', 'project.id_project=member.id_project')->where(['level' => 4, 'end' => NULL])->get()->getResultArray();
+        $db = \Config\Database::connect();
         $data = $this->where(['level' => 4])->get()->getResultArray();
-        foreach($data as $d){
-                if(empty($memberActive)){
-                    $array[] = $d;
-                }else{        
-                foreach($memberActive as $m){
-                    if($d['id_account'] != $m['id_account']){
-                        $array[] = $d;
-                    }
+        // return $memberActive;
+        foreach($data as $k => $d){
+                $memberCount = $db->query("SELECT m.email FROM member m, project p WHERE m.email = '$d[email]' AND m.id_project = p.id_project AND p.status = 0")->getNumRows();
+                if($memberCount == 1){      
+                    unset($data[$k]);
                 }
-            }
         }
-        return $array;
+        return $data;
     }
 }
 ?>

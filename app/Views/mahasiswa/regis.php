@@ -23,13 +23,13 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                 <label>Name Project</label>
-                <input type="name" class="form-control" placeholder="Name Project" required>
+                <input type="text" name="name" class="form-control" placeholder="Name Project" required>
                 </div>
                 <div class="form-group col-md-6">
                 <label>Supervisor</label>
                 <select name="lecturer" class="form-control">
                     <?php foreach($lecturer as $l) : ?>
-                        <option value="<?= $l['id_account'];?>"><?= $l['name'];?></option>
+                        <option value="<?= $l['email'];?>"><?= $l['name'];?></option>
 					<?php endforeach; ?>
                 </select>
                 </div>
@@ -50,9 +50,9 @@
                     <select name="head" class="form-control">
                     <option value="">Choose Member</option>
                         <?php foreach($student as $s) : 
-                            if($s['id_account'] == $id) continue;     
+                            if($s['email'] == $id) continue;     
                         ?>
-                            <option value="<?= $s['id_account'];?>"><?= $s['name'];?></option>
+                            <option value="<?= $s['email'];?>"><?= $s['name'];?></option>
                         <?php endforeach; ?>
                     </select>
                     <?php
@@ -80,9 +80,9 @@
                         <select name="member1" class="form-control">
                         <option value="">Choose Member</option>
                         <?php foreach($student as $s) : 
-                                if($s['id_account'] == $id) continue;     
+                                if($s['email'] == $id) continue;     
                         ?>
-                            <option value="<?= $s['id_account'];?>"><?= $s['name'];?></option>
+                            <option value="<?= $s['email'];?>"><?= $s['name'];?></option>
                         <?php endforeach; ?>
                             </select>
                     <?php
@@ -94,9 +94,9 @@
                     <select name="member2" class="form-control">
                     <option value="">Choose Member</option>
                         <?php foreach($student as $s) : 
-                            if($s['id_account'] == $id) continue;     
+                            if($s['email'] == $id) continue;     
                         ?>
-                            <option value="<?= $s['id_account'];?>"><?= $s['name'];?></option>
+                            <option value="<?= $s['email'];?>"><?= $s['name'];?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
