@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 10, 2022 at 08:03 AM
+-- Host: 127.0.0.1
+-- Generation Time: Feb 11, 2022 at 06:59 AM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_THICK`
+-- Database: `db_thick`
 --
 
 -- --------------------------------------------------------
@@ -144,7 +144,9 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`id_member`, `email`, `id_project`, `created_at`, `updated_at`) VALUES
-(1, 'member1@student.ukdc.ac.id', 1, NULL, NULL);
+(1, 'member1@student.ukdc.ac.id', 1, NULL, NULL),
+(2, 'audi.nathanael@student.ukdc.ac.id', 2, NULL, NULL),
+(3, 'member2@student.ukdc.ac.id', 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -154,12 +156,13 @@ INSERT INTO `member` (`id_member`, `email`, `id_project`, `created_at`, `updated
 
 CREATE TABLE `project` (
   `id_project` int(225) NOT NULL,
-  `id_lecturer` varchar(225) NOT NULL,
-  `id_head` varchar(225) NOT NULL,
+  `email_lecturer` varchar(225) NOT NULL,
+  `email_head` varchar(225) NOT NULL,
   `name` varchar(100) NOT NULL,
   `type` varchar(25) NOT NULL,
   `start` date NOT NULL,
   `end` date DEFAULT NULL,
+  `status` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -168,9 +171,9 @@ CREATE TABLE `project` (
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`id_project`, `id_lecturer`, `id_head`, `name`, `type`, `start`, `end`, `created_at`, `updated_at`) VALUES
-(1, '123', '19340008', 'coba 1', 'Application', '2022-02-10', NULL, NULL, NULL),
-(2, '123', '19340007', 'coba 2', 'Application', '2022-02-10', NULL, NULL, NULL);
+INSERT INTO `project` (`id_project`, `email_lecturer`, `email_head`, `name`, `type`, `start`, `end`, `status`, `created_at`, `updated_at`) VALUES
+(1, '123', '19340008', 'coba 1', 'Application', '2022-02-10', NULL, 0, NULL, NULL),
+(2, '123', '19340007', 'coba 2', 'Application', '2022-02-10', NULL, 0, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -238,7 +241,7 @@ ALTER TABLE `departement`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id_member` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_member` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `project`
