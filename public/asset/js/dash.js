@@ -3,3 +3,6 @@ $('#bar').click(function(){
 	$('#page-content-wrapper ,#sidebar-wrapper').toggleClass('toggled' );
 
 });
+$(document).ready(function() {
+    $('#account').DataTable();
+} );

@@ -15,10 +15,10 @@
 	
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 	    <!--fontawesome-->
-       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
+       	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		<link rel="stylesheet" href="<?= base_url('/asset/css/dash.css'); ?>">
-		 <link rel="stylesheet" href="font/font/flaticon.css">
+		<link rel="stylesheet" href="font/font/flaticon.css">
   </head>
   
 
@@ -84,8 +84,8 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $nama; ?></span>
-                <img class="img-profile rounded-circle" src="<?= $gambar; ?>">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $name; ?></span>
+                <img class="img-profile rounded-circle" src="<?= $picture; ?>">
               </a>
             </li>
 

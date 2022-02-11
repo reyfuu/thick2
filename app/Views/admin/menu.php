@@ -5,7 +5,7 @@
         <!-- Sidebar -->
     <nav class="fixed-top align-top" id="sidebar-wrapper" role="navigation">
        <div class="simplebar-content" style="padding: 0px;">
-				<a class="sidebar-brand" href="index.html">
+				<a class="sidebar-brand" href="<?= base_url('/admin'); ?>">
           <span class="align-middle">Thick</span>
         </a>
 
@@ -22,6 +22,11 @@
 		  <li class=""> 
 		  <a class="nav-link text-left" href="<?= base_url('/admin/prodi');?>"  role="button" >
        <i class="flaticon-bar-chart-1"></i>  Prodi
+         </a>
+		  </li>
+		  <li class=""> 
+		  <a class="nav-link text-left <?php if($title == 'Account'){ echo 'active';} ?>" href="<?= base_url('/admin/account');?>"  role="button" >
+       <i class="flaticon-bar-chart-1"></i>  Account
          </a>
 		  </li>
        <li class="has-sub"> 
