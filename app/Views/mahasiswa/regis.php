@@ -10,7 +10,10 @@
         <!-- register form -->
         <form method="post" action="<?= base_url('/mahasiswa/regis-project');  ?>">
            <div class="container">
-           <h1 class="h3 mb-0 text-gray-800">Register Project</h1>
+               <div class="form-group">
+               <h1 class="h3 mb-0 text-gray-800">Register Project</h1>
+               </div>
+           
                 <div class="form-group ">
                 <label>Name Project</label>
                 <input type="text" name="name" class="form-control" placeholder="Name Project" required>
@@ -54,6 +57,10 @@
                     <?php
                         }
                     ?>
+                </div>
+                <div class="form-group">
+                    <label for="date">Deadline</label>
+                    <input type="datetime" name="date" id="date">
                 </div>
        
        

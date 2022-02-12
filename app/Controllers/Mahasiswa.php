@@ -102,6 +102,20 @@ class Mahasiswa extends BaseController
         ];
         return view('mahasiswa/dashboard',$data);
     }
+    public function process(){
+        $raw = $this->loginModel->getId(session()->get('id'));
+        $data = [
+            'title' => 'Dashboard',
+            'name' => $raw['name'],
+            'picture' => $raw['picture'],
+            'id' => $raw['email'],
+            'lecturer' => $this->loginModel->getLecturer(),
+            'student' => $this->loginModel->getStudent(),
+            'status' => $this->proModel->cekHead($raw['email'])
+        ];
+        return view('mahasiswa/process',$data);
+    }
+
     
   
 }
