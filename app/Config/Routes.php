@@ -39,6 +39,10 @@ $routes->add('/mahasiswa/regis-project', 'Mahasiswa::regisProject');
 $routes->get('/dosen', 'Dosen::index');
 $routes->get('/admin', 'Admin::index');
 $routes->get('/admin/prodi', 'Admin::prodi');
+<<<<<<< HEAD
+=======
+$routes->get('/admin/account', 'Admin::account');
+>>>>>>> origin/master
 $routes->get('/keluar', 'Home::keluar');
 $routes->get('/registration', 'Home::registration');
 $routes->add('/register', 'Home::register');

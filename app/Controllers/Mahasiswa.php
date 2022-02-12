@@ -102,6 +102,7 @@ class Mahasiswa extends BaseController
         ];
         return view('mahasiswa/dashboard',$data);
     }
+<<<<<<< HEAD
     public function process(){
         $raw = $this->loginModel->getId(session()->get('id'));
         $data = [
@@ -116,6 +117,8 @@ class Mahasiswa extends BaseController
         return view('mahasiswa/process',$data);
     }
 
+=======
+>>>>>>> origin/master
     
   
 }

@@ -23,6 +23,14 @@ class AccountModel extends Model
     public function cekId($id){
         return $this->where(['id_account' => $id])->countAllResults();
     }
+<<<<<<< HEAD
+=======
+    public function getLevel(){
+        return $this->
+        join('concertation', 'concertration.id_concertration=account.id_concertration')
+        ->join('departement','departement.id_departement=concertration.id_departement')->get()->getResultArray();
+    }
+>>>>>>> origin/master
     public function getLecturer(){
         return $this->where(['level' => 3])->find();
     }

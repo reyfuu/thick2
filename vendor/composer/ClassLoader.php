@@ -149,7 +149,11 @@ class ClassLoader
 
     /**
      * @return string[] Array of classname => path
+<<<<<<< HEAD
      * @psalm-var array<string, string>
+=======
+     * @psalm-return array<string, string>
+>>>>>>> origin/master
      */
     public function getClassMap()
     {

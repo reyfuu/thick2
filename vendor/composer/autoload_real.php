@@ -65,11 +65,25 @@ class ComposerAutoloaderInit1908c9e11c4b3b06d4e1ab2b316b57cf
     }
 }
 
+<<<<<<< HEAD
 function composerRequire1908c9e11c4b3b06d4e1ab2b316b57cf($fileIdentifier, $file)
 {
     if (empty($GLOBALS['__composer_autoload_files'][$fileIdentifier])) {
         require $file;
 
         $GLOBALS['__composer_autoload_files'][$fileIdentifier] = true;
+=======
+/**
+ * @param string $fileIdentifier
+ * @param string $file
+ * @return void
+ */
+function composerRequire1908c9e11c4b3b06d4e1ab2b316b57cf($fileIdentifier, $file)
+{
+    if (empty($GLOBALS['__composer_autoload_files'][$fileIdentifier])) {
+        $GLOBALS['__composer_autoload_files'][$fileIdentifier] = true;
+
+        require $file;
+>>>>>>> origin/master
     }
 }

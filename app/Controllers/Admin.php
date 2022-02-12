@@ -7,12 +7,15 @@ use App\Models\LoginModel;
 use App\Models\ProdiModel;
 
 
+
 class Admin extends BaseController
 {
     protected $loginModel;
     protected $prodiModel;
     protected $konsModel;
+
     protected $googleAPI;
+
     public $level = array(
         1 => 'Super Admin',
         2 => 'Kepala Prodi',
@@ -22,6 +25,7 @@ class Admin extends BaseController
     public function __construct()
     {
         session();
+
         $this->loginModel = new LoginModel();
         $this->prodiModel = new ProdiModel();
         $this->konsModel = new KonsModel();
@@ -40,8 +44,30 @@ class Admin extends BaseController
             'title' => 'Dashboard',
             'nama' => $raw['nama'],
             'gambar' => $raw['gambar']
+
         ];
         return view('admin/dashboard',$data);
+    }
+
+
+    public function account()
+    {
+        // switch (session()->get('level')) {
+        //     case 1:
+                
+        //         break;
+        //     default:
+        //         return redirect()->to('/login');
+        // }
+        dd($this->loginModel->getLevel());
+        // $raw = $this->loginModel->getId('1'/*session()->get('id')*/);
+        // $data = [
+        //     'title' => 'Account',
+        //     'name' => $raw['name'],
+        //     'picture' => $raw['picture'],
+        //     'account' => $this->loginModel->getLevel()
+        // ];
+        // return view('admin/account',$data);
     }
 
     public function prodi()
